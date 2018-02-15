@@ -298,6 +298,12 @@
         UIImage *image = RCTImageFromLocalAssetURL(imageURL);
         if (image) { // if local image
             [self setImage:image];
+            if (_onPhotoViewerLoad) {
+                    _onPhotoViewerLoad(nil);
+                }
+            if (_onPhotoViewerLoadEnd) {
+                _onPhotoViewerLoadEnd(nil);
+            }
             return;
         }
 
